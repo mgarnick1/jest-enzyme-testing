@@ -1,6 +1,6 @@
 import React from "react";
 // import { render } from "@testing-library/react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import App from "./App";
 
 describe("test ui", () => {
@@ -14,4 +14,13 @@ describe("test ui", () => {
     const wrapper = shallow(<App />);
     expect(wrapper);
   });
+
 });
+
+describe('test mount', () => {
+  test("a tag has class", () => {
+    const wrapper = mount(<App />);
+    expect(wrapper.find("a").hasClass("App-link")).toBe(true);
+    wrapper.unmount();
+  });
+})
