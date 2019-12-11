@@ -20,7 +20,8 @@ describe("test ui", () => {
 describe('test mount', () => {
   test("a tag has class", () => {
     const wrapper = mount(<App />);
-    expect(wrapper.find("a").hasClass("App-link")).toBe(true);
+    // expect(wrapper.find("a").hasClass("App-link")).toBe(true);
+    expect(wrapper.find("[data-testid='href']").hasClass("App-link")).toBe(true);
     wrapper.unmount();
   });
 })
