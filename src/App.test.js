@@ -2,6 +2,7 @@ import React from "react";
 // import { render } from "@testing-library/react";
 import { shallow, mount } from "enzyme";
 import App from "./App";
+import Foo from './Foo';
 
 describe("test ui", () => {
   // test.skip("renders learn react link", () => {
@@ -24,4 +25,13 @@ describe('test mount', () => {
     expect(wrapper.find("[data-testid='href']").hasClass("App-link")).toBe(true);
     wrapper.unmount();
   });
+})
+
+describe('simulate click', () => {
+  test('click button', () => {
+    const wrapper = mount(<Foo />);
+    expect(wrapper.find("[data-testid='test-clicks']").length).toEqual(1);
+    wrapper.find('button').simulate('click');
+    expect(wrapper.find("[data-testid='test-clicks']").length).toEqual(1);
+  })
 })
